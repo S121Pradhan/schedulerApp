@@ -1,0 +1,70 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/bids": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/payment_methods": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Payment method object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/payment_methods"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "payment_methods": {
+      "properties": {
+        "qr_code": {
+          "type": "string"
+        },
+        "upi_id": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
