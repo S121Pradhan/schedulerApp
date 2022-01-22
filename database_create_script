@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS public.payment_methods
     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 ),
     qr_code text,
     upi_id character varying,
-    mobile numeric(10),
+    mobile numeric(10) NOT NULL,
     PRIMARY KEY (id)
 );
 

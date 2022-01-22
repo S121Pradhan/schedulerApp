@@ -63,12 +63,14 @@ const update_payment_method = (body, resourceId) => {
       counter++;
     }
     if (mobile) {
-      updateQuery += "mobile=$" + counter + "";
+      updateQuery += "mobile=$" + counter + ",";
       queryVarArry.push(mobile);
       counter++;
     }
     updateQuery = updateQuery.substring(0, updateQuery.length - 1);
     queryVarArry.push(resourceId);
+    console.log(updateQuery);
+    console.log(queryVarArry);
     pool.query(
       updateQuery + " where id=$" + counter,
       queryVarArry,
