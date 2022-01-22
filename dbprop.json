@@ -1,7 +1,7 @@
 {
   "user": "postgres",
   "host": "localhost",
-  "database": "schedulerdb",
+  "database": "postgres",
   "password": "L0vely",
   "port": 5432
 }
