@@ -8,6 +8,7 @@ const users_model = require("./models/users_model");
 const venues_model = require("./models/venues_model");
 const slots_model = require("./models/slots_model");
 const transactions_model = require("./models/transactions_model");
+const bookings_model = require("./models/bookings_model");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger_output.json");
@@ -373,6 +374,75 @@ app.delete("/transactions/:id", (req, res) => {
   const id = req.params.id;
   transactions_model
     .delete_transaction_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+// Bookings
+app.post("/bookings", (req, res) => {
+  const body = req.body;
+  bookings_model
+    .create_booking_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/bookings", (req, res) => {
+  const body = req.body;
+  console.log("in get method");
+  bookings_model
+    .get_booking_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/bookings/:id", (req, res) => {
+  const id = req.params.id;
+  console.log("in get by id method");
+  bookings_model
+    .get_bookingById_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.patch("/bookings/:id", (req, res) => {
+  const resourceId = req.params.id;
+  const body = req.body;
+  bookings_model
+    .update_booking_method(body, resourceId)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.delete("/bookings/:id", (req, res) => {
+  const id = req.params.id;
+  bookings_model
+    .delete_booking_method(id)
     .then((response) => {
       res.status(200).send(response);
     })
