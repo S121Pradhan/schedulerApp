@@ -7,6 +7,7 @@ const payment_methods_model = require("./models/payment_methods_model");
 const users_model = require("./models/users_model");
 const venues_model = require("./models/venues_model");
 const slots_model = require("./models/slots_model");
+const transactions_model = require("./models/transactions_model");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger_output.json");
@@ -303,6 +304,75 @@ app.delete("/slots/:id", (req, res) => {
   const id = req.params.id;
   slots_model
     .delete_slot_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+// transactions
+app.post("/transactions", (req, res) => {
+  const body = req.body;
+  transactions_model
+    .create_transaction_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/transactions", (req, res) => {
+  const body = req.body;
+  console.log("in get method");
+  transactions_model
+    .get_transaction_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/transactions/:id", (req, res) => {
+  const id = req.params.id;
+  console.log("in get by id method");
+  transactions_model
+    .get_transactionById_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.patch("/transactions/:id", (req, res) => {
+  const resourceId = req.params.id;
+  const body = req.body;
+  transactions_model
+    .update_transaction_method(body, resourceId)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.delete("/transactions/:id", (req, res) => {
+  const id = req.params.id;
+  transactions_model
+    .delete_transaction_method(id)
     .then((response) => {
       res.status(200).send(response);
     })
