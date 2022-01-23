@@ -141,6 +141,124 @@
           }
         }
       }
+    },
+    "/users": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Add users",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "get user by Id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "get user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_usersById"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "update users",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_users_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "delete user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_usersById"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -173,6 +291,39 @@
           "type": "string"
         },
         "mobile": {
+          "type": "string"
+        }
+      }
+    },
+    "users": {
+      "properties": {
+        "mobile_no": {
+          "type": "string"
+        },
+        "id_proof": {
+          "type": "string"
+        },
+        "payment_receiver_id": {
+          "type": "string"
+        }
+      }
+    },
+    "get_usersById": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_users_byId": {
+      "properties": {
+        "mobile_no": {
+          "type": "string"
+        },
+        "id_proof": {
+          "type": "string"
+        },
+        "payment_receiver_id": {
           "type": "string"
         }
       }
