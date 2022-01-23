@@ -377,6 +377,124 @@
           }
         }
       }
+    },
+    "/slots": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/slots"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/slots/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_slots_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_slots_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_slots_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_slots_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -461,7 +579,7 @@
           "type": "string"
         },
         "owner": {
-          "type": "string"
+          "type": "bigint"
         }
       }
     },
@@ -487,6 +605,39 @@
           "type": "string"
         },
         "owner": {
+          "type": "bigint"
+        }
+      }
+    },
+    "slots": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "end_time": {
+          "type": "string"
+        }
+      }
+    },
+    "get_slots_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_slots_byId": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "end_time": {
           "type": "string"
         }
       }
