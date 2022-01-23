@@ -4,6 +4,7 @@ const port = 3001;
 
 const bids_model = require("./models/bids_model");
 const payment_methods_model = require("./models/payment_methods_model");
+const users_model = require("./models/users_model");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger_output.json");
@@ -92,6 +93,75 @@ app.delete("/payment_methods/:id", (req, res) => {
   const id = req.params.id;
   payment_methods_model
     .delete_payment_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+// USERS
+app.post("/users", (req, res) => {
+  const body = req.body;
+  users_model
+    .create_user_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/users", (req, res) => {
+  const body = req.body;
+  console.log("in get method");
+  users_model
+    .get_user_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/users/:id", (req, res) => {
+  const id = req.params.id;
+  console.log("in get by id method");
+  users_model
+    .get_userById_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.patch("/users/:id", (req, res) => {
+  const resourceId = req.params.id;
+  const body = req.body;
+  users_model
+    .update_user_method(body, resourceId)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.delete("/users/:id", (req, res) => {
+  const id = req.params.id;
+  users_model
+    .delete_user_method(id)
     .then((response) => {
       res.status(200).send(response);
     })
