@@ -259,6 +259,124 @@
           }
         }
       }
+    },
+    "/venues": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/venues"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/venues/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_venues_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_venues_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_venues_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_venues_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -324,6 +442,51 @@
           "type": "string"
         },
         "payment_receiver_id": {
+          "type": "string"
+        }
+      }
+    },
+    "venues": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "coordinates_url": {
+          "type": "string"
+        },
+        "images_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        }
+      }
+    },
+    "get_venues_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_venues_byId": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "coordinates_url": {
+          "type": "string"
+        },
+        "images_url": {
+          "type": "string"
+        },
+        "owner": {
           "type": "string"
         }
       }
