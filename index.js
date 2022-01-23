@@ -6,6 +6,7 @@ const bids_model = require("./models/bids_model");
 const payment_methods_model = require("./models/payment_methods_model");
 const users_model = require("./models/users_model");
 const venues_model = require("./models/venues_model");
+const slots_model = require("./models/slots_model");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger_output.json");
@@ -241,6 +242,75 @@ app.delete("/venues/:id", (req, res) => {
     });
 });
 
+// slots
+
+app.post("/slots", (req, res) => {
+  const body = req.body;
+  slots_model
+    .create_slot_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/slots", (req, res) => {
+  const body = req.body;
+  console.log("in get method");
+  slots_model
+    .get_slot_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/slots/:id", (req, res) => {
+  const id = req.params.id;
+  console.log("in get by id method");
+  slots_model
+    .get_slotById_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.patch("/slots/:id", (req, res) => {
+  const resourceId = req.params.id;
+  const body = req.body;
+  slots_model
+    .update_slot_method(body, resourceId)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.delete("/slots/:id", (req, res) => {
+  const id = req.params.id;
+  slots_model
+    .delete_slot_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });
