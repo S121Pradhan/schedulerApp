@@ -613,6 +613,124 @@
           }
         }
       }
+    },
+    "/bookings": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bookings"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bookings_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bookings_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_bookings_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bookings_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -790,6 +908,36 @@
         },
         "endtime": {
           "amount": "numeric"
+        }
+      }
+    },
+    "bookings": {
+      "properties": {
+        "customer_id": {
+          "type": "number"
+        },
+        "winning_bid_id": {
+          "type": "number"
+        }
+      }
+    },
+    "get_bookings_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_bookings_byId": {
+      "properties": {
+        "customer_id": {
+          "type": "number"
+        },
+        "winning_bid_id": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "boolean"
         }
       }
     }
