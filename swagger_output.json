@@ -9,21 +9,6 @@
   "basePath": "/",
   "schemes": ["http"],
   "paths": {
-    "/bids": {
-      "post": {
-        "description": "",
-        "produces": [],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/payment_methods": {
       "post": {
         "description": "",
@@ -731,6 +716,124 @@
           }
         }
       }
+    },
+    "/bids": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bids"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bids/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bids_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bids_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_bids_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bids_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -938,6 +1041,57 @@
         },
         "deleted": {
           "type": "boolean"
+        }
+      }
+    },
+    "bids": {
+      "properties": {
+        "bidder_id": {
+          "type": "number"
+        },
+        "venue_id": {
+          "type": "number"
+        },
+        "bid_price": {
+          "type": "number"
+        },
+        "slot_id": {
+          "type": "number"
+        },
+        "transaction_id": {
+          "type": "number"
+        },
+        "event_date": {
+          "type": "date"
+        }
+      }
+    },
+    "get_bids_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_bids_byId": {
+      "properties": {
+        "bidder_id": {
+          "type": "number"
+        },
+        "venue_id": {
+          "type": "number"
+        },
+        "bid_price": {
+          "type": "number"
+        },
+        "slot_id": {
+          "type": "number"
+        },
+        "transaction_id": {
+          "type": "number"
+        },
+        "event_date": {
+          "type": "date"
         }
       }
     }
