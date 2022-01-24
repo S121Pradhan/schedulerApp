@@ -1,0 +1,1099 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "localhost:3001",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/payment_methods": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Payment method object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/payment_methods"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/payment_methods/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Payment method object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Payment method object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Payment method object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Payment method object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Add users",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "get user by Id",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "get user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_usersById"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "update users",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_users_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "delete user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_usersById"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/venues": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/venues"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/venues/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_venues_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_venues_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_venues_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "venues object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_venues_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/slots": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/slots"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/slots/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_slots_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_slots_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_slots_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "slots object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_slots_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/transactions": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "transactions object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/transactions"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/transactions/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "transactions object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_transactions_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "transactions object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_transactions_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "transactions object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_transactions_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "transactions object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_transactions_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bookings"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bookings/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bookings_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bookings_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_bookings_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bookings object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bookings_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bids": {
+      "post": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/bids"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/bids/{id}": {
+      "get": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bids_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bids_byId"
+            }
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/update_bids_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "produces": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "bids object that needs to be added to the db",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/get_bids_byId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "payment_methods": {
+      "properties": {
+        "qr_code": {
+          "type": "string"
+        },
+        "upi_id": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        }
+      }
+    },
+    "get_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_byId": {
+      "properties": {
+        "qr_code": {
+          "type": "string"
+        },
+        "upi_id": {
+          "type": "string"
+        },
+        "mobile": {
+          "type": "string"
+        }
+      }
+    },
+    "users": {
+      "properties": {
+        "mobile_no": {
+          "type": "string"
+        },
+        "id_proof": {
+          "type": "string"
+        },
+        "payment_receiver_id": {
+          "type": "string"
+        }
+      }
+    },
+    "get_usersById": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_users_byId": {
+      "properties": {
+        "mobile_no": {
+          "type": "string"
+        },
+        "id_proof": {
+          "type": "string"
+        },
+        "payment_receiver_id": {
+          "type": "string"
+        }
+      }
+    },
+    "venues": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "coordinates_url": {
+          "type": "string"
+        },
+        "images_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "bigint"
+        }
+      }
+    },
+    "get_venues_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_venues_byId": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "coordinates_url": {
+          "type": "string"
+        },
+        "images_url": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "bigint"
+        }
+      }
+    },
+    "slots": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "end_time": {
+          "type": "string"
+        }
+      }
+    },
+    "get_slots_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_slots_byId": {
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "start_time": {
+          "type": "string"
+        },
+        "end_time": {
+          "type": "string"
+        }
+      }
+    },
+    "transactions": {
+      "properties": {
+        "sender_id": {
+          "type": "numeric"
+        },
+        "receiver_id": {
+          "type": "numeric"
+        },
+        "endtime": {
+          "amount": "numeric"
+        }
+      }
+    },
+    "get_transactions_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_transactions_byId": {
+      "properties": {
+        "sender_id": {
+          "type": "numeric"
+        },
+        "receiver_id": {
+          "type": "numeric"
+        },
+        "endtime": {
+          "amount": "numeric"
+        }
+      }
+    },
+    "bookings": {
+      "properties": {
+        "customer_id": {
+          "type": "number"
+        },
+        "winning_bid_id": {
+          "type": "number"
+        }
+      }
+    },
+    "get_bookings_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_bookings_byId": {
+      "properties": {
+        "customer_id": {
+          "type": "number"
+        },
+        "winning_bid_id": {
+          "type": "number"
+        },
+        "deleted": {
+          "type": "boolean"
+        }
+      }
+    },
+    "bids": {
+      "properties": {
+        "bidder_id": {
+          "type": "number"
+        },
+        "venue_id": {
+          "type": "number"
+        },
+        "bid_price": {
+          "type": "number"
+        },
+        "slot_id": {
+          "type": "number"
+        },
+        "transaction_id": {
+          "type": "number"
+        },
+        "event_date": {
+          "type": "date"
+        }
+      }
+    },
+    "get_bids_byId": {
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "update_bids_byId": {
+      "properties": {
+        "bidder_id": {
+          "type": "number"
+        },
+        "venue_id": {
+          "type": "number"
+        },
+        "bid_price": {
+          "type": "number"
+        },
+        "slot_id": {
+          "type": "number"
+        },
+        "transaction_id": {
+          "type": "number"
+        },
+        "event_date": {
+          "type": "date"
+        }
+      }
+    }
+  }
+}
