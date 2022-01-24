@@ -1,6 +1,6 @@
 import { Pool } from "pg";
 import * as dbprop from "../../dbprop.json";
-import { AnySrvRecord } from "dns";
+import { buildAPISuccessResult, buildAPIErrorResult } from "../api";
 const pool = new Pool(dbprop);
 
 class Payments {
@@ -11,20 +11,20 @@ class Payments {
         "INSERT INTO payment_methods (qr_code, upi_id, mobile) VALUES ($1, $2, $3) RETURNING *",
         [qr_code, upi_id, mobile]
       );
-      return "Payments inserted successfully";
+      return buildAPISuccessResult(204, "Payments inserted successfully");
     } catch (e) {
       console.log("Error", e);
-      return "Error in payment method";
+      return buildAPIErrorResult(500, "Error in payment method");
     }
   }
 
   async get_payment_method(): Promise<any> {
     try {
       const results = await pool.query("Select * from payment_methods");
-      return results.rows;
+      return buildAPISuccessResult(204, results.rows);
     } catch (e) {
       console.log("Error", e);
-      return "Error in payment method";
+      return buildAPIErrorResult(500, "Error in payment method");
     }
   }
 
@@ -34,10 +34,10 @@ class Payments {
         "Select * from payment_methods where Id = $1",
         [id]
       );
-      return results.rows;
+      return buildAPISuccessResult(204, results.rows);
     } catch (e) {
       console.log("Error", e);
-      return "Error in payment method";
+      return buildAPIErrorResult(500, "Error in payment method");
     }
   }
 
@@ -70,7 +70,7 @@ class Payments {
       updateQuery + " where id=$" + counter,
       queryVarArry
     );
-    return results;
+    return buildAPISuccessResult(204, results);
   }
 
   async delete_payment_method(id: string): Promise<any> {
@@ -78,7 +78,7 @@ class Payments {
       "Delete from payment_methods where id=$1",
       [id]
     );
-    return results;
+    return buildAPISuccessResult(204, results);
   }
 }
 
