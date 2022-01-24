@@ -26,18 +26,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post("/bids", (req, res) => {
-  bids_model
-    .create_bid(req.body)
-    .then((response) => {
-      res.status(200).send(response);
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).send(error);
-    });
-});
-
 app.post("/payment_methods", (req, res) => {
   const body = req.body;
   payment_methods_model
@@ -443,6 +431,76 @@ app.delete("/bookings/:id", (req, res) => {
   const id = req.params.id;
   bookings_model
     .delete_booking_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+//bids
+
+app.post("/bids", (req, res) => {
+  const body = req.body;
+  bids_model
+    .create_bid_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/bids", (req, res) => {
+  const body = req.body;
+  console.log("in get method");
+  bids_model
+    .get_bid_method(body)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.get("/bids/:id", (req, res) => {
+  const id = req.params.id;
+  console.log("in get by id method");
+  bids_model
+    .get_bidById_method(id)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.patch("/bids/:id", (req, res) => {
+  const resourceId = req.params.id;
+  const body = req.body;
+  bids_model
+    .update_bid_method(body, resourceId)
+    .then((response) => {
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send(error);
+    });
+});
+
+app.delete("/bids/:id", (req, res) => {
+  const id = req.params.id;
+  bids_model
+    .delete_bid_method(id)
     .then((response) => {
       res.status(200).send(response);
     })
